@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\02edfc6e-0234-4589-9675-7cadcc822697_image.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\02edfc6e-0234-4589-9675-7cadcc822697_image.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\385153c8-e710-4a3f-8d04-d1f77ad95700_unnamed.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\385153c8-e710-4a3f-8d04-d1f77ad95700_unnamed.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\51a1be2c-9c99-412f-93a1-83024164afdc_unnamed.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\51a1be2c-9c99-412f-93a1-83024164afdc_unnamed.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\5d5d14e7-6f62-4cf1-b9c0-a24fc1cf326b_707.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\5d5d14e7-6f62-4cf1-b9c0-a24fc1cf326b_707.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\60424dda-bce6-4334-b8f7-92c2d9994395_707.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\60424dda-bce6-4334-b8f7-92c2d9994395_707.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\785c948c-d87c-41c3-9dbc-86f77a843cef_img.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\785c948c-d87c-41c3-9dbc-86f77a843cef_img.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\9014fa4b-2006-4f08-84ea-711bb5aebf44_unnamed.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\9014fa4b-2006-4f08-84ea-711bb5aebf44_unnamed.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\b251dbdc-50ab-406b-9075-444b7ac1a82e_unnamed.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\b251dbdc-50ab-406b-9075-444b7ac1a82e_unnamed.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\c7b21e8b-4c33-44d2-8a95-ab8b12daf93e_unnamed.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\c7b21e8b-4c33-44d2-8a95-ab8b12daf93e_unnamed.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\db481807-777d-4db4-a6b6-6d85f2db913f_imag.jpg",
+      "PackagePath": "staticwebassets\\Items-uploads\\db481807-777d-4db4-a6b6-6d85f2db913f_imag.jpg"
+    },
+    {
+      "Id": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\dd4f8602-61e3-485b-b586-c144380e9ed4_logo.PNG",
+      "PackagePath": "staticwebassets\\Items-uploads\\dd4f8602-61e3-485b-b586-c144380e9ed4_logo.PNG"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.ApiERP.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.ApiERP.props",
+      "PackagePath": "build\\ApiERP.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ApiERP.props",
+      "PackagePath": "buildMultiTargeting\\ApiERP.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.ApiERP.props",
+      "PackagePath": "buildTransitive\\ApiERP.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
