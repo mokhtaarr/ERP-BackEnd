@@ -7,6 +7,7 @@ D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildE
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Debug\net8.0\DAL.sourcelink.json
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Debug\net8.0\DAL.dll
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Debug\net8.0\refint\DAL.dll
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Debug\net8.0\DAL.pdb

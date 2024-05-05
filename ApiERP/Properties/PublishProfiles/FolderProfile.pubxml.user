@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\Work Soft go\ERP System\Api-Publish</_PublishTargetUrl>
-    <History>True|2024-04-15T13:36:40.1916920Z;True|2024-04-15T15:09:11.3121791+02:00;</History>
+    <History>True|2024-05-04T18:10:29.7015874Z;True|2024-05-04T10:40:45.0508097+03:00;True|2024-04-15T15:36:40.1916920+02:00;True|2024-04-15T15:09:11.3121791+02:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
