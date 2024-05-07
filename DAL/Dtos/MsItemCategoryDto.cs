@@ -28,4 +28,21 @@ namespace DAL.Dtos
         public int? CurrentTrNo { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
+
+    public class Add_MsItemCategoryDto
+    {
+        public int? ItemCategoryId { get; set; }
+        public string ItemCatCode { get; set; } = null!;
+        public string? ItemCatDescA { get; set; }
+        public string? ItemCatDescE { get; set; }
+        public int? ParentItemCategoryId { get; set; }
+       
+        public byte? ItemCategoryType { get; set; }
+      
+        public string? Remarks { get; set; }
+       
+        public DateTime? CreatedAt { get; set; }
+      
+      
+    }
 }
