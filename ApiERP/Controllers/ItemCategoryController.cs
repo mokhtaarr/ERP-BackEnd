@@ -33,8 +33,8 @@ namespace ApiERP.Controllers
                              ItemCatDescA = itemCategory.ItemCatDescA,
                              ItemCatDescE = itemCategory.ItemCatDescE,
                              ParentItemCategoryId = itemCategory.ParentItemCategoryId,
-                             Name_ParentItemCategoryId = _db.MsItemCategories.Where(c => c.ItemCategoryId == itemCategory.ParentItemCategoryId).Select(p => p.ItemCatDescA).FirstOrDefault(),
-                             NameEn_ParentItemCategoryId = _db.MsItemCategories.Where(c => c.ItemCategoryId == itemCategory.ParentItemCategoryId).Select(p => p.ItemCatDescE).FirstOrDefault(),
+                             Name_ParentItemCategoryId = _db.MsItemCategories.Where(c => c.ItemCategoryId == itemCategory.ParentItemCategoryId && c.DeletedAt == null).Select(p => p.ItemCatDescA).FirstOrDefault(),
+                             NameEn_ParentItemCategoryId = _db.MsItemCategories.Where(c => c.ItemCategoryId == itemCategory.ParentItemCategoryId && c.DeletedAt == null).Select(p => p.ItemCatDescE).FirstOrDefault(),
                              CategoryImage = itemCategory.CategoryImage,
                              CreatedAt = itemCategory.CreatedAt,
                              DeletedBy = itemCategory.DeletedBy,
@@ -93,7 +93,6 @@ namespace ApiERP.Controllers
                 else
                 {
                    
-                    getItemCat.ItemCatCode = dto.ItemCatCode;
                     getItemCat.ItemCatDescA = dto.ItemCatDescA;
                     getItemCat.ItemCatDescE = dto.ItemCatDescE;
                     getItemCat.Remarks = dto.Remarks;
