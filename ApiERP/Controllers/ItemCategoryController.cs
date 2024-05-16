@@ -65,6 +65,20 @@ namespace ApiERP.Controllers
                 if (getItemCat == null)
                 {
 
+                    MsItemCategory existingItemCat = await _db.MsItemCategories.Where(i => i.ItemCatCode == dto.ItemCatCode).FirstOrDefaultAsync();
+                    if(existingItemCat is not null)
+                    {
+                        var Bad_response = new
+                        {
+                            status = false,
+                            message = $" هذا الكود موجود من قبل {dto.ItemCatCode}  ",
+                            messageEn = $"This item  code already exists {dto.ItemCatCode}, please change it",
+
+                        };
+
+                        return Ok(Bad_response);
+                    }
+
                     MsItemCategory itemCat = new MsItemCategory
                     {
                         ItemCatCode = dto.ItemCatCode,

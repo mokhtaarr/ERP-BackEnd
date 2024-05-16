@@ -37,6 +37,21 @@ namespace ApiERP.Controllers
                 MsCustomerCategory getRecord = await  _db.MsCustomerCategories.FindAsync(dto.CustomerCatId);
                 if(getRecord == null)
                 {
+
+                    MsCustomerCategory ExisitingCustomerCategoryCode = await _db.MsCustomerCategories.Where(c => c.CatCode == dto.CatCode).FirstOrDefaultAsync();
+                    if(ExisitingCustomerCategoryCode is not null) {
+                        var Bad_response = new
+                        {
+                            status = false,
+                            message = $" كود هذا العميل موجود من قبل {dto.CatCode}  ",
+                            messageEn = $"This customer category code already exists {dto.CatCode}, please change it",
+
+                        };
+
+                        return Ok(Bad_response);
+                    }
+                
+
                     MsCustomerCategory newCustomerCategory = new MsCustomerCategory
                     {
                         CatCode = dto.CatCode,

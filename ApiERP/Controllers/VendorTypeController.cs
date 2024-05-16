@@ -54,6 +54,21 @@ namespace ApiERP.Controllers
 
                 if (getVendorType == null)
                 {
+
+                    MsVendorType existingVendorType = await _db.MsVendorTypes.Where(v => v.VendorTypeCode == dto.VendorTypeCode).FirstOrDefaultAsync();
+                    if(existingVendorType is not null)
+                    {
+                        var Bad_response = new
+                        {
+                            status = false,
+                            message = $" كود هذا المورد موجود من قبل {dto.VendorTypeCode}  ",
+                            messageEn = $"This vendor Type code already exists {dto.VendorTypeCode}, please change it",
+
+                        };
+
+                        return Ok(Bad_response);
+                    }
+
                     MsVendorType newVendor = new MsVendorType
                     {
                         VendorTypeCode = dto.VendorTypeCode,

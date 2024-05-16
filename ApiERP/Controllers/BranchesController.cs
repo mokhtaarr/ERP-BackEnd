@@ -281,50 +281,71 @@ namespace ApiERP.Controllers
         {
             try
             {
-                if (dto == null)
-                    return BadRequest("model is empty");
+                if (!ModelState.IsValid)
+                    return BadRequest(dto);
 
-                if (dto.StoreCode.Length == 0)
-                    return BadRequest("store code is empty");
+                MsStore existStore = await _db.MsStores.FindAsync(dto.StoreId);
 
-
-                MsStore existStoreCode = _db.MsStores.Where(s=>s.StoreCode == dto.StoreCode).FirstOrDefault();
-                if (existStoreCode != null)
+                if(existStore == null)
                 {
 
-                    var Bad_response  = new
+                    MsStore existStoreCode = _db.MsStores.Where(s => s.StoreCode == dto.StoreCode).FirstOrDefault();
+                    if (existStoreCode != null)
                     {
-                        status = false,
-                        message = $" كود هذا الفرع موجود من قبل {dto.StoreCode}  ",
-                        messageEn = $"This store code already exists {dto.StoreCode}, please change it",
-                       
+
+                        var Bad_response = new
+                        {
+                            status = false,
+                            message = $" كود هذا الفرع موجود من قبل {dto.StoreCode}  ",
+                            messageEn = $"This store code already exists {dto.StoreCode}, please change it",
+
+                        };
+
+                        return Ok(Bad_response);
+                    }
+
+                    MsStore store = new MsStore()
+                    {
+                        StoreCode = dto.StoreCode,
+                        StoreDescA = dto.StoreDescA,
+                        StoreDescE = dto.StoreDescE,
+                        Tel = dto.Tel,
                     };
 
-                    return Ok(Bad_response);
+                    _db.MsStores.Add(store);
+                    await _db.SaveChangesAsync();
+
+                    var response = new
+                    {
+                        status = true,
+                        message = "تم أضافة الفرع بنجاح",
+                        messageEn = "The branch has been added successfully",
+                    };
+
+                    return Ok(response);
+
+                }
+                else
+                {
+                    existStore.StoreDescA = dto.StoreDescA;
+                    existStore.StoreDescE = dto.StoreDescE;
+                    existStore.Tel = dto.Tel;
+
+                    await _db.SaveChangesAsync();
+
+                    var response = new
+                    {
+                        status = true,
+                        message = "تم تعديل الفرع بنجاح",
+                        messageEn = "Store has been modified successfully",
+                    };
+
+                    return Ok(response);
                 }
 
-                MsStore store = new MsStore()
-                {
-                    StoreCode = dto.StoreCode,
-                    StoreDescA = dto.StoreDescA,
-                    StoreDescE = dto.StoreDescE,
-                    Tel = dto.Tel,
-                };
 
-                _db.MsStores.Add(store);
-                 await _db.SaveChangesAsync();
-
-                var response = new
-                {
-                    status = true,
-                    message = "تم أضافة الفرع بنجاح",
-                    messageEn = "The branch has been added successfully",
-                };
-
-                return Ok(response);
-
-
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 return BadRequest(ex.Message);
             }

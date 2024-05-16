@@ -54,6 +54,22 @@ namespace ApiERP.Controllers
 
                 if (getCustomerType == null)
                 {
+
+
+                    MsCustomerType existingCustomerTypeCode =await _db.MsCustomerTypes.Where(c => c.CustomerTypeCode == dto.CustomerTypeCode).FirstOrDefaultAsync();
+                    if(existingCustomerTypeCode is not null)
+                    {
+                        var Bad_response = new
+                        {
+                            status = false,
+                            message = $" كود هذا العميل موجود من قبل {dto.CustomerTypeCode}  ",
+                            messageEn = $"This customer Type code already exists {dto.CustomerTypeCode}, please change it",
+
+                        };
+
+                        return Ok(Bad_response);
+                    }
+
                     MsCustomerType addCustomerType = new MsCustomerType
                     {
                         CustomerTypeCode = dto.CustomerTypeCode,

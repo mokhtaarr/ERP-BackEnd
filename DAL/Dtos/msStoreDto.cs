@@ -20,6 +20,8 @@ namespace DAL.Dtos
 
     public class AddmsStoreDto
     {
+        public int? StoreId { get; set; }
+
         public string StoreCode { get; set; } = string.Empty;
         public string StoreDescA { get; set; } = string.Empty;
         public string StoreDescE { get; set; } = string.Empty;
