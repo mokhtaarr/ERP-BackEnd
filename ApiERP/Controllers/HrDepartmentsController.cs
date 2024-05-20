@@ -19,9 +19,9 @@ namespace ApiERP.Controllers
 
         [HttpGet("GetAllHrDepartments")]
         public async Task<IActionResult> GetAllHrDepartments()
-        {
+      {
             var query = await (from department in _db.HrDepartments
-                               where department.DeletedAt == null
+                               where department.DeletedAt == null 
                                select new
                                {
                                    departMentId = department.DepartMentId,
