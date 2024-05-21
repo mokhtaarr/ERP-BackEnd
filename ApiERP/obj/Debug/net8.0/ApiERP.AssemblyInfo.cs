@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiERP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c5a2b228da9e2830e17843e149d227396c65f4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b91b1cee9d3556f431374d24d13b5779f36691ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiERP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiERP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -90,6 +90,8 @@ namespace ApiERP.Controllers
                         status = true,
                         message = "تم الإضافة بنجاح",
                         messageEn = "added successfully",
+                        id = addCustomerType.CustomerTypeId
+
                     };
 
                     return Ok(response);
@@ -111,6 +113,8 @@ namespace ApiERP.Controllers
                         status = true,
                         message = "تم تعديل نوع العميل بنجاح",
                         messageEn = "customer type has been modified successfully",
+                        id = getCustomerType.CustomerTypeId
+
                     };
 
                     return Ok(response);
