@@ -717,6 +717,7 @@ namespace DAL.Context
         public virtual DbSet<SysAnalyticalCodeUpdateType> SysAnalyticalCodeUpdateTypes { get; set; } = null!;
         public virtual DbSet<SysBasket> SysBaskets { get; set; } = null!;
         public virtual DbSet<SysBook> SysBooks { get; set; } = null!;
+        public virtual DbSet<SystermType> SystermTypes { get; set; } = null!;
         public virtual DbSet<SysCity> SysCities { get; set; } = null!;
         public virtual DbSet<SysConfigsm> SysConfigsms { get; set; } = null!;
         public virtual DbSet<SysCounter> SysCounters { get; set; } = null!;
@@ -39187,7 +39188,14 @@ namespace DAL.Context
                     .UseCollation("SQL_Latin1_General_CP1_CI_AS");
             });
 
-            modelBuilder.Entity<SysCity>(entity =>
+            modelBuilder.Entity<SystermType>(entity =>
+            {
+                entity.HasKey(e => e.TermTypId);
+
+                entity.ToTable("Sys_termTypes");
+
+            });
+                modelBuilder.Entity<SysCity>(entity =>
             {
                 entity.ToTable("Sys_City");
 
