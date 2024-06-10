@@ -9,6 +9,8 @@ namespace DAL.Dtos
     public class msCustomerDto
     {
         public int? CustomerId { get; set; }
+        public int? AccountId { get; set; }
+
         public int? CustomerCatId { get; set; }
         public int? CustomerTypeId { get; set; }
         public int? CurrencyId { get; set; }
@@ -52,5 +54,28 @@ namespace DAL.Dtos
         public string? AddField5 { get; set; }
         public bool? ForAdjustOnly { get; set; }
 
+        public int? AddAccount1 { get; set; }
+        public int? AddAccount2 { get; set; }
+        public int? AddAccount3 { get; set; }
+        public int? AddAccount4 { get; set; }
+        public int? AddAccount5 { get; set; }
+        public int? AddAccount6 { get; set; }
+        public int? AddAccount7 { get; set; }
+        public int? AddAccount8 { get; set; }
+        public int? AddAccount9 { get; set; }
+        public int? AddAccount10 { get; set; }
+
+        public bool? IsPrimaryAccountChangedForm { get;set;}
+        public bool? IsAddAccount1ChangedForm { get;set;}
+        public bool? IsAddAccount2ChangedForm { get;set;}
+        public bool? IsAddAccount3ChangedForm { get;set;}
+        public bool? IsAddAccount4ChangedForm { get;set;}
+        public bool? IsAddAccount5ChangedForm { get;set;}
+        public bool? IsAddAccount6ChangedForm { get;set;}
+        public bool? IsAddAccount7ChangedForm { get;set;}
+        public bool? IsAddAccount8ChangedForm { get;set;}
+        public bool? IsAddAccount9ChangedForm { get;set;}
+        public bool? IsAddAccount10ChangedForm { get;set; }
+      
     }
 }
