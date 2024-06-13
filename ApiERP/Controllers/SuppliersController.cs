@@ -1716,5 +1716,43 @@ namespace ApiERP.Controllers
             }
         }
 
+        [HttpDelete("DeleteVendor")]
+        public async Task<IActionResult> DeleteVendor(int VendorId)
+        {
+            try
+            {
+                if (VendorId == 0) return BadRequest("VendorId  is equal zero");
+
+                MsVendor getVendor = await _db.MsVendors.FindAsync(VendorId);
+
+
+                if (getVendor == null) return NotFound("Vendor is not found");
+
+                getVendor.DeletedAt = DateTime.Now;
+                await _db.SaveChangesAsync();
+
+                var response = new
+                {
+                    status = true,
+                    message = "تم الحذف بنجاح",
+                    messageEn = "Vendor deleted successfully",
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                var Bad_response = new
+                {
+                    status = false,
+                    message = $"{ex.Message} حدث خطأ ما",
+                    messageEn = $"something went wrong {ex.Message}",
+                };
+
+                return Ok(Bad_response);
+            }
+        }
+
+
     }
 }

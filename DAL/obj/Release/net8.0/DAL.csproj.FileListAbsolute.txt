@@ -13,3 +13,6 @@ D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Release\net8.0\refint\DAL.dll
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Release\net8.0\DAL.pdb
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Release\net8.0\DAL.genruntimeconfig.cache
 D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Release\net8.0\ref\DAL.dll
+D:\Work Soft go\ERP System\Api\ApiERP\DAL\bin\Release\net8.0\RepositoryPatternWithUOW.dll
+D:\Work Soft go\ERP System\Api\ApiERP\DAL\bin\Release\net8.0\RepositoryPatternWithUOW.pdb
+D:\Work Soft go\ERP System\Api\ApiERP\DAL\obj\Release\net8.0\DAL.csproj.CopyComplete

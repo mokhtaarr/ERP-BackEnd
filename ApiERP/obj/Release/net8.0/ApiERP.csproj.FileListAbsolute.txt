@@ -67,3 +67,7 @@ D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\refint\ApiERP.dl
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\ApiERP.pdb
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\ApiERP.genruntimeconfig.cache
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\ref\ApiERP.dll
+D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\bin\Release\net8.0\AutoMapper.dll
+D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\bin\Release\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\bin\Release\net8.0\RepositoryPatternWithUOW.dll
+D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\bin\Release\net8.0\RepositoryPatternWithUOW.pdb

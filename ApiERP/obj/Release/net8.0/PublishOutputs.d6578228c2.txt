@@ -4,6 +4,8 @@ D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\appse
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\ApiERP.dll
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\ApiERP.runtimeconfig.json
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\ApiERP.pdb
+D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\AutoMapper.dll
+D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -40,5 +42,7 @@ D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\runti
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\DAL.dll
+D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\RepositoryPatternWithUOW.dll
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\DAL.pdb
+D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\RepositoryPatternWithUOW.pdb
 D:\Work Soft go\ERP System\Api\ApiERP\ApiERP\obj\Release\net8.0\PubTmp\Out\ApiERP.deps.json
