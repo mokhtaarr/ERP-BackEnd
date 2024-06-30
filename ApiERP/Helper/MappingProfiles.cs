@@ -9,6 +9,11 @@ namespace ApiERP.Helper
         public MappingProfiles()
         {
             CreateMap<HrEmployeeDto, HrEmployee>();
+            CreateMap<CalAccountChartDto,CalAccountChart>();
+            CreateMap<CalCostCenterDto, CalCostCenter>();
+            CreateMap<CalCostCenter, CalCostCenterDto>();
+
+
         }
     }
 }
