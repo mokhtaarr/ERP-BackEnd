@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RepositoryPatternWithUOW")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90fb6b6f9ec732e8526d3fae2845f445b2bd6694")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("RepositoryPatternWithUOW")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RepositoryPatternWithUOW")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

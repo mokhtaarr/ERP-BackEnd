@@ -12,7 +12,11 @@ namespace ApiERP.Helper
             CreateMap<CalAccountChartDto,CalAccountChart>();
             CreateMap<CalCostCenterDto, CalCostCenter>();
             CreateMap<CalCostCenter, CalCostCenterDto>();
-
+            CreateMap<SysAnalyticalCodeDto, SysAnalyticalCode>();
+            CreateMap<SysAnalyticalCode, SysAnalyticalCodeDto>();
+            CreateMap<MsItemUnitDto, MsItemUnit>();
+            CreateMap<MsItemUnit,MsItemUnitDto>();
+            CreateMap<MsItemcardDto,MsItemCard>();
 
         }
     }

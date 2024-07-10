@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\02edfc6e-0234-4589-9675-7cadcc822697_image.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\58dfe4f8-d8b2-4fdd-922e-789c2bb37166_unnamed.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>ApiERP</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/02edfc6e-0234-4589-9675-7cadcc822697_image.jpg</RelativePath>
+      <RelativePath>Items-uploads/58dfe4f8-d8b2-4fdd-922e-789c2bb37166_unnamed.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,14 +14,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\02edfc6e-0234-4589-9675-7cadcc822697_image.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\58dfe4f8-d8b2-4fdd-922e-789c2bb37166_unnamed.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\385153c8-e710-4a3f-8d04-d1f77ad95700_unnamed.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\842f84e2-2f0f-4385-9d31-e64d36a38355_unnamed (1).jpg))">
       <SourceType>Package</SourceType>
       <SourceId>ApiERP</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/385153c8-e710-4a3f-8d04-d1f77ad95700_unnamed.jpg</RelativePath>
+      <RelativePath>Items-uploads/842f84e2-2f0f-4385-9d31-e64d36a38355_unnamed (1).jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -30,14 +30,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\385153c8-e710-4a3f-8d04-d1f77ad95700_unnamed.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\842f84e2-2f0f-4385-9d31-e64d36a38355_unnamed (1).jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\51a1be2c-9c99-412f-93a1-83024164afdc_unnamed.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\9cec2336-323a-41c8-b9f4-8c785b0baaaa_unnamed (1).jpg))">
       <SourceType>Package</SourceType>
       <SourceId>ApiERP</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/51a1be2c-9c99-412f-93a1-83024164afdc_unnamed.jpg</RelativePath>
+      <RelativePath>Items-uploads/9cec2336-323a-41c8-b9f4-8c785b0baaaa_unnamed (1).jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -46,14 +46,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\51a1be2c-9c99-412f-93a1-83024164afdc_unnamed.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\9cec2336-323a-41c8-b9f4-8c785b0baaaa_unnamed (1).jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\5d5d14e7-6f62-4cf1-b9c0-a24fc1cf326b_707.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\imageNotFound.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>ApiERP</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/5d5d14e7-6f62-4cf1-b9c0-a24fc1cf326b_707.jpg</RelativePath>
+      <RelativePath>Items-uploads/imageNotFound.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -62,119 +62,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\5d5d14e7-6f62-4cf1-b9c0-a24fc1cf326b_707.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\60424dda-bce6-4334-b8f7-92c2d9994395_707.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>ApiERP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/60424dda-bce6-4334-b8f7-92c2d9994395_707.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\60424dda-bce6-4334-b8f7-92c2d9994395_707.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\785c948c-d87c-41c3-9dbc-86f77a843cef_img.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>ApiERP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/785c948c-d87c-41c3-9dbc-86f77a843cef_img.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\785c948c-d87c-41c3-9dbc-86f77a843cef_img.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\9014fa4b-2006-4f08-84ea-711bb5aebf44_unnamed.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>ApiERP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/9014fa4b-2006-4f08-84ea-711bb5aebf44_unnamed.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\9014fa4b-2006-4f08-84ea-711bb5aebf44_unnamed.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\b251dbdc-50ab-406b-9075-444b7ac1a82e_unnamed.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>ApiERP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/b251dbdc-50ab-406b-9075-444b7ac1a82e_unnamed.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\b251dbdc-50ab-406b-9075-444b7ac1a82e_unnamed.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\c7b21e8b-4c33-44d2-8a95-ab8b12daf93e_unnamed.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>ApiERP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/c7b21e8b-4c33-44d2-8a95-ab8b12daf93e_unnamed.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\c7b21e8b-4c33-44d2-8a95-ab8b12daf93e_unnamed.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\db481807-777d-4db4-a6b6-6d85f2db913f_imag.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>ApiERP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/db481807-777d-4db4-a6b6-6d85f2db913f_imag.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\db481807-777d-4db4-a6b6-6d85f2db913f_imag.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\dd4f8602-61e3-485b-b586-c144380e9ed4_logo.PNG))">
-      <SourceType>Package</SourceType>
-      <SourceId>ApiERP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/ApiERP</BasePath>
-      <RelativePath>Items-uploads/dd4f8602-61e3-485b-b586-c144380e9ed4_logo.PNG</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\dd4f8602-61e3-485b-b586-c144380e9ed4_logo.PNG))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Items-uploads\imageNotFound.jpg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

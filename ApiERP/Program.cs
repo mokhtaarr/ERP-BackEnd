@@ -38,6 +38,8 @@ app.UseSwaggerUI();
 
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 
 app.UseCors(c=>c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 

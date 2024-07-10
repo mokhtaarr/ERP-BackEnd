@@ -218,7 +218,7 @@ namespace ApiERP.Controllers
         [HttpGet("GetAllSys_AnalyticalCodes")]
         public async Task<IActionResult> GetAllSys_AnalyticalCodes()
         {
-            return Ok(await _db.SysAnalyticalCodes.Where(s => s.DeletedAt == null)
+            return Ok(await _db.SysAnalyticalCodes.Where(s => s.DeletedAt == null && s.CodeLevelType == 1 )
                 .Select(s=> new {s.Aid,s.Code,s.DescA,s.DescE,}).ToListAsync());
         }
 
