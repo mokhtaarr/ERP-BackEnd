@@ -63,8 +63,9 @@ namespace DAL.Dtos
 
         public List<msitemUnitList>? list { get; set; }
         public List<msItemCollectionDto>? itemCollections { get; set; }
-
-
+        public List<defaultPartition>? itemPartition { get; set; }
+        public List<itemsAlternatives>? itemAlternatives { get; set; }
+        
     }
 
     public class msitemUnitList
@@ -117,6 +118,7 @@ namespace DAL.Dtos
 
     public class msItemCollectionDto
     {
+        public int? itemCollectId { get; set; }
         public int? ItemCardId { get; set; }
         public int? SubItemId { get; set; }
         public int? UnitId { get; set; }
@@ -134,5 +136,27 @@ namespace DAL.Dtos
         public string? ImgDesc1 { get; set; }
         public string? ImgDesc2 { get; set; }
         public IFormFile Image { get; set; }
+    }
+
+    public class defaultPartition
+    {
+        public int ItemCardId { get; set; }
+        public int StoreId { get; set; }
+        public int StorePartId { get; set; }
+        public string? StoreCode { get; set; }
+        public string? storeDescA { get; set; }
+        public string? partCode { get; set; }
+        public string? partDescA { get; set; }
+    }
+
+    public class itemsAlternatives
+    {
+        public int? AlterId { get; set; }
+        public int? ItemCardId { get; set; }
+        public int? UnitId { get; set; }
+        public decimal? UnitRate { get; set; }
+        public byte? ItemType { get; set; }
+        public decimal? Quantity { get; set; }
+        public string? Remarks { get; set; }
     }
 }

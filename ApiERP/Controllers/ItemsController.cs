@@ -31,6 +31,15 @@ namespace ApiERP.Controllers
             return Ok(await _db.MsItemCards.Where(i=>i.DeletedAt == null).OrderByDescending(i=>i.ItemCardId).Take(100).AsNoTracking().ToListAsync());
         }
 
+
+
+        [HttpGet("is-used-item/{itemCardId}")]
+        public async Task<IActionResult> IsUsedItem(int itemCardId)
+        {
+            var results = await _db.IsUsedItemAsync(itemCardId);
+            return Ok(results);
+        }
+
         [HttpPost("AddItemWitImage")]
         public async Task<IActionResult> AddItemWitImage([FromForm]MsItemCardWithImage dto)
         {
@@ -212,6 +221,9 @@ namespace ApiERP.Controllers
                                 Price8 = itemUnit?.Price8,
                                 Price9 = itemUnit?.Price9,
                                 Price10 = itemUnit?.Price10,
+                                IsDefaultPurchas = itemUnit.IsDefaultPurchas,
+                                IsDefaultSale = itemUnit.IsDefaultSale,
+                                CannotDevide = itemUnit.CannotDevide,
                             };
 
                             _db.MsItemUnits.Add(NewItemUnit);
@@ -227,10 +239,12 @@ namespace ApiERP.Controllers
                             MsItemCollection NewCollection = new MsItemCollection
                             {
                                 ItemCardId = NewItem.ItemCardId,
-                                SubItemId = NewItem.ItemCardId,
+                                SubItemId = itemCollection.ItemCardId,
                                 UnitId = itemCollection?.UnitId,
                                 ItemType = itemCollection.ItemType,
-                                UnitRate = itemCollection.UnitRate
+                                UnitRate = itemCollection.UnitRate,
+                                Quantity = itemCollection.Quantity,
+                                Remarks = itemCollection.Remarks
                             };
 
                             _db.MsItemCollections.Add(NewCollection);
@@ -239,6 +253,43 @@ namespace ApiERP.Controllers
                         }
                     }
 
+                    if (dto.itemPartition.Count > 0)
+                    {
+                        foreach (var itemPart in dto.itemPartition)
+                        {
+                            MsItemCardDefaulPartition NewDefaultPartition = new MsItemCardDefaulPartition
+                            {
+                                ItemCardId = NewItem.ItemCardId,
+                                StoreId = itemPart.StoreId,
+                                StorePartId = itemPart.StorePartId
+                            };
+
+                            _db.MsItemCardDefaulPartitions.Add(NewDefaultPartition);
+                            await _db.SaveChangesAsync();
+
+                        }
+                    }
+
+                    if (dto.itemAlternatives.Count > 0)
+                    {
+                        foreach (var itemnative in dto.itemAlternatives)
+                        {
+                            MsItemAlternative NewItemNAtive = new MsItemAlternative
+                            {
+                                ItemCardId = NewItem.ItemCardId,
+                                AlterItemCardId = itemnative.ItemCardId,
+                                UnitId = itemnative?.UnitId,
+                                ItemType = itemnative.ItemType,
+                                UnitRate = itemnative.UnitRate,
+                                Quantity = itemnative.Quantity,
+                                Remarks = itemnative.Remarks
+                            };
+
+                            _db.MsItemAlternatives.Add(NewItemNAtive);
+                            await _db.SaveChangesAsync();
+
+                        }
+                    }
                     await trans.CommitAsync();
 
                     res.status = true;
@@ -261,13 +312,53 @@ namespace ApiERP.Controllers
                             MsItemCollection NewCollection = new MsItemCollection
                             {
                                 ItemCardId = getRecord.ItemCardId,
-                                SubItemId = getRecord.ItemCardId,
+                                SubItemId = itemCollection.ItemCardId,
                                 UnitId = itemCollection?.UnitId,
                                 ItemType = itemCollection.ItemType,
-                                UnitRate = itemCollection.UnitRate
+                                UnitRate = itemCollection.UnitRate,
+                                Quantity = itemCollection.Quantity,
+                                Remarks = itemCollection.Remarks
                             };
 
                             _db.MsItemCollections.Add(NewCollection);
+                            await _db.SaveChangesAsync();
+
+                        }
+                    }
+
+                    if (dto.itemPartition.Count > 0)
+                    {
+                        foreach (var itemPart in dto.itemPartition)
+                        {
+                            MsItemCardDefaulPartition NewDefaultPartition = new MsItemCardDefaulPartition
+                            {
+                                ItemCardId = getRecord.ItemCardId,
+                                StoreId = itemPart.StoreId,
+                                StorePartId = itemPart.StorePartId
+                            };
+
+                            _db.MsItemCardDefaulPartitions.Add(NewDefaultPartition);
+                            await _db.SaveChangesAsync();
+
+                        }
+                    }
+
+                    if (dto.itemAlternatives.Count > 0)
+                    {
+                        foreach (var itemnative in dto.itemAlternatives)
+                        {
+                            MsItemAlternative NewItemNAtive = new MsItemAlternative
+                            {
+                                ItemCardId = getRecord.ItemCardId,
+                                AlterItemCardId = itemnative.ItemCardId,
+                                UnitId = itemnative?.UnitId,
+                                ItemType = itemnative.ItemType,
+                                UnitRate = itemnative.UnitRate,
+                                Quantity = itemnative.Quantity,
+                                Remarks = itemnative.Remarks
+                            };
+
+                            _db.MsItemAlternatives.Add(NewItemNAtive);
                             await _db.SaveChangesAsync();
 
                         }
@@ -543,6 +634,25 @@ namespace ApiERP.Controllers
             return Ok(items);
         }
 
+        [HttpGet("GetItemUnits")]
+        public async Task<IActionResult> GetItemUnits(int itemCardId)
+        {
+            var msitemUnit = await _db.MsItemUnits.Where(u=>u.ItemCardId == itemCardId)
+                .Select(u=> new {u.UnitId,u.UnitNam}).ToListAsync();
+
+            if (msitemUnit.Count == 0)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Ok(msitemUnit);
+            }
+        }
+
+
+
+
         [HttpGet("GetProductImage")]
         public async Task<IActionResult> GetProductImage(int itemCardId)
         {
@@ -558,6 +668,10 @@ namespace ApiERP.Controllers
                                select new
                                {
                                    itemCollectId = itemcollection.ItemCollectId,
+                                   subItemId = itemcollection.SubItemId,
+                                   unitId = itemcollection.UnitId,
+                                   quantity = itemcollection.Quantity,
+                                   remarks = itemcollection.Remarks,
                                    itemCode =  _db.MsItemCards.FirstOrDefault(i=>i.ItemCardId == itemcollection.SubItemId).ItemCode,
                                    itemDescA = _db.MsItemCards.FirstOrDefault(i => i.ItemCardId == itemcollection.SubItemId).ItemDescA,
                                    itemDescE = _db.MsItemCards.FirstOrDefault(i => i.ItemCardId == itemcollection.SubItemId).ItemDescE,
@@ -568,6 +682,210 @@ namespace ApiERP.Controllers
 
             return Ok(query);
         }
+
+
+        [HttpPost("UpdateItemCollection")]
+        public async Task<IActionResult> UpdateItemCollection(msItemCollectionDto dto)
+        {
+            try
+            {
+                MsItemCollection getItem = await _db.MsItemCollections.FindAsync(dto.itemCollectId);
+                if (getItem == null) return NotFound();
+
+                getItem.UnitId = dto.UnitId;
+                getItem.Remarks = dto.Remarks;
+                getItem.Quantity = dto.Quantity;
+
+                _db.SaveChanges();
+
+                var response = new
+                {
+                    status = true,
+                    message = "تم التعديل بنجاح",
+                    messageEn = "modofied successfully",
+                };
+
+                return Ok(response);
+
+            
+            }
+            catch (Exception ex)
+            {
+                var Bad_response = new
+                {
+                    status = false,
+                    message = $"{ex.Message} حدث خطأ ما",
+                    messageEn = $"something went wrong {ex.Message}",
+                };
+
+                return Ok(Bad_response);
+            }
+        }
+
+
+        [HttpGet("GetItemAlternatives")]
+        public async Task<IActionResult> GetItemAlternatives(int itemCardId)
+        {
+            var query = await (from itemAlter in _db.MsItemAlternatives
+                               where itemAlter.ItemCardId == itemCardId
+                               select new
+                               {
+                                   alterId = itemAlter.AlterId,
+                                   alterItemCardId = itemAlter.AlterItemCardId,
+                                   unitId = itemAlter.UnitId,
+                                   quantity = itemAlter.Quantity,
+                                   remarks = itemAlter.Remarks,
+                                   itemCode = _db.MsItemCards.FirstOrDefault(i => i.ItemCardId == itemAlter.AlterItemCardId).ItemCode,
+                                   itemDescA = _db.MsItemCards.FirstOrDefault(i => i.ItemCardId == itemAlter.AlterItemCardId).ItemDescA,
+                                   itemDescE = _db.MsItemCards.FirstOrDefault(i => i.ItemCardId == itemAlter.AlterItemCardId).ItemDescE,
+                                   unitNam = _db.MsItemUnits.FirstOrDefault(u => u.UnitId == itemAlter.UnitId).UnitNam,
+                                   itemType = _db.MsItemCards.FirstOrDefault(i => i.ItemCardId == itemAlter.AlterItemCardId).ItemType
+
+                               }).ToListAsync();
+
+            return Ok(query);
+        }
+
+        [HttpPost("UpdateItemAlter")]
+        public async Task<IActionResult> UpdateItemAlter(itemsAlternatives dto)
+        {
+            try
+            {
+                MsItemAlternative getItem = await _db.MsItemAlternatives.FindAsync(dto.AlterId);
+                if (getItem == null) return NotFound();
+
+                getItem.UnitId = dto.UnitId;
+                getItem.Remarks = dto.Remarks;
+                getItem.Quantity = dto.Quantity;
+
+                _db.SaveChanges();
+
+                var response = new
+                {
+                    status = true,
+                    message = "تم التعديل بنجاح",
+                    messageEn = "modofied successfully",
+                };
+
+                return Ok(response);
+
+
+            }
+            catch (Exception ex)
+            {
+                var Bad_response = new
+                {
+                    status = false,
+                    message = $"{ex.Message} حدث خطأ ما",
+                    messageEn = $"something went wrong {ex.Message}",
+                };
+
+                return Ok(Bad_response);
+            }
+        }
+
+
+        [HttpDelete("DeleteItemAlternative")]
+        public async Task<IActionResult> DeleteItemAlternative(int alterId)
+        {
+            try
+            {
+                MsItemAlternative getItemAlter = await _db.MsItemAlternatives.FindAsync(alterId);
+
+                if (getItemAlter == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    _db.MsItemAlternatives.Remove(getItemAlter);
+
+                    await _db.SaveChangesAsync();
+
+                    var response = new
+                    {
+                        status = true,
+                        message = "تم المسح بنجاح",
+                        messageEn = "item alternative has been deleted successfully",
+                    };
+
+                    return Ok(response);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                var Bad_response = new
+                {
+                    status = false,
+                    message = $"{ex.Message} حدث خطأ ما",
+                    messageEn = $"something went wrong {ex.Message}",
+                };
+
+                return Ok(Bad_response);
+            }
+        }
+
+
+        [HttpGet("GetItemDefaultPartitions")]
+        public async Task<IActionResult> GetItemDefaultPartitions(int itemCardId)
+        {
+            var query = await (from itemPart in _db.MsItemCardDefaulPartitions
+                               where itemPart.ItemCardId == itemCardId
+                               select new
+                               {
+                                   itemStorePrtId = itemPart.ItemStorePrtId,
+                                   storePartId = itemPart.StorePartId,
+                                   storeCode = _db.MsStores.FirstOrDefault(m => m.StoreId == itemPart.StoreId).StoreCode,
+                                   storeDescA = _db.MsStores.FirstOrDefault(m=>m.StoreId == itemPart.StoreId).StoreDescA,
+                                   partCode = _db.MsPartitions.FirstOrDefault(p => p.StorePartId == itemPart.StorePartId).PartCode,
+                                   partDescA = _db.MsPartitions.FirstOrDefault(p=>p.StorePartId == itemPart.StorePartId).PartDescA,
+                               }).ToListAsync();
+
+            return Ok(query);
+        }
+
+        [HttpDelete("DeleteItemDefaultPartition")]
+        public async Task<IActionResult> DeleteItemDefaultPartition(int itemStorePrtId)
+        {
+            try
+            {
+                MsItemCardDefaulPartition getDefaultPartition = await _db.MsItemCardDefaulPartitions.FindAsync(itemStorePrtId);
+
+                if (getDefaultPartition == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    _db.MsItemCardDefaulPartitions.Remove(getDefaultPartition);
+
+                    await _db.SaveChangesAsync();
+
+                    var response = new
+                    {
+                        status = true,
+                        message = "تم المسح بنجاح",
+                        messageEn = "item default Partition has been deleted successfully",
+                    };
+
+                    return Ok(response);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                var Bad_response = new
+                {
+                    status = false,
+                    message = $"{ex.Message} حدث خطأ ما",
+                    messageEn = $"something went wrong {ex.Message}",
+                };
+
+                return Ok(Bad_response);
+            }
+        }
+
 
         [HttpDelete("DeleteItemCollection")]
         public async Task<IActionResult> DeleteItemCollection(int itemCollectId)
@@ -610,7 +928,26 @@ namespace ApiERP.Controllers
             }
         }
 
+        [HttpGet("GetItemPartitionWithHisStore")]
+        public async Task<IActionResult> GetItemPartitionWithHisStore()
+        {
+            var query = await (from partition in _db.MsPartitions join store in _db.MsStores
+                               on partition.StoreId equals store.StoreId
+                               select new
+                               {
+                                   storePartId = partition.StorePartId,
+                                   partCode = partition.PartCode,
+                                   partDescA = partition.PartDescA,
+                                   partDescE = partition.PartDescE,
+                                   storeId = store.StoreId,
+                                   storeCode = store.StoreCode,
+                                   storeDescA = store.StoreDescA,
+                                   storeDescE = store.StoreDescA,
+                                   
+                               }).ToListAsync();
 
+            return Ok(query);
+        }
 
     }
 }

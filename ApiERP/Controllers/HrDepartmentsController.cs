@@ -21,7 +21,7 @@ namespace ApiERP.Controllers
         public async Task<IActionResult> GetAllHrDepartments()
       {
             var query = await (from department in _db.HrDepartments
-                               where department.DeletedAt == null 
+                               where department.DeletedAt == null && department.ParentId == null
                                select new
                                {
                                    departMentId = department.DepartMentId,
@@ -41,7 +41,49 @@ namespace ApiERP.Controllers
                                        parentId = department.ParentId,
                                        departTask = department.DepartTask,
                                        remarks = department.Remarks,
-                                       
+                                       children = _db.HrDepartments.Where(d => d.DeletedAt == null && d.ParentId == department.DepartMentId)
+                                                 .Select(department => new {
+                                                     departMentId = department.DepartMentId,
+                                                     departCode = department.DepartCode,
+                                                     name = department.DepartName1,
+                                                     departName2 = department.DepartName2,
+                                                     parentId = department.ParentId,
+                                                     departTask = department.DepartTask,
+                                                     remarks = department.Remarks,
+                                                     children = _db.HrDepartments.Where(d => d.DeletedAt == null && d.ParentId == department.DepartMentId)
+                                                      .Select(department => new {
+                                                          departMentId = department.DepartMentId,
+                                                          departCode = department.DepartCode,
+                                                          name = department.DepartName1,
+                                                          departName2 = department.DepartName2,
+                                                          parentId = department.ParentId,
+                                                          departTask = department.DepartTask,
+                                                          remarks = department.Remarks,
+                                                          children = _db.HrDepartments.Where(d => d.DeletedAt == null && d.ParentId == department.DepartMentId)
+                                                            .Select(department => new {
+                                                                departMentId = department.DepartMentId,
+                                                                departCode = department.DepartCode,
+                                                                name = department.DepartName1,
+                                                                departName2 = department.DepartName2,
+                                                                parentId = department.ParentId,
+                                                                departTask = department.DepartTask,
+                                                                remarks = department.Remarks,
+                                                                children = _db.HrDepartments.Where(d => d.DeletedAt == null && d.ParentId == department.DepartMentId)
+                                                                    .Select(department => new {
+                                                                        departMentId = department.DepartMentId,
+                                                                        departCode = department.DepartCode,
+                                                                        name = department.DepartName1,
+                                                                        departName2 = department.DepartName2,
+                                                                        parentId = department.ParentId,
+                                                                        departTask = department.DepartTask,
+                                                                        remarks = department.Remarks,
+
+                                                                    }).ToList()
+                                                              }).ToList()
+
+                                                       }).ToList()
+
+                                                 }).ToList()
                                    }).ToList()
 
                                }).ToListAsync();

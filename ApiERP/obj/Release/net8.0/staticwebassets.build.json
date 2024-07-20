@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IXipaKTEEmnbSRuPNCx2KKknbHdMlp0c3bKfnP5zVoY=",
+  "Hash": "4un2mo18QFxyguJ2EsIJjVgwHW3SsBn36v0vULhUoKU=",
   "Source": "ApiERP",
   "BasePath": "_content/ApiERP",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Items-uploads\\9cec2336-323a-41c8-b9f4-8c785b0baaaa_unnamed (1).jpg"
+    },
+    {
+      "Identity": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\f4698535-71a7-4663-97aa-d8b3d2fab898_img.jpg",
+      "SourceId": "ApiERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\",
+      "BasePath": "_content/ApiERP",
+      "RelativePath": "Items-uploads/f4698535-71a7-4663-97aa-d8b3d2fab898_img.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Items-uploads\\f4698535-71a7-4663-97aa-d8b3d2fab898_img.jpg"
     },
     {
       "Identity": "D:\\Work Soft go\\ERP System\\Api\\ApiERP\\ApiERP\\wwwroot\\Items-uploads\\imageNotFound.jpg",
