@@ -32,13 +32,516 @@ namespace ApiERP.Controllers
         }
 
 
-
-        [HttpGet("is-used-item/{itemCardId}")]
-        public async Task<IActionResult> IsUsedItem(int itemCardId)
+       
+        [HttpDelete("DeleteItemCard")]
+        public async Task<IActionResult> DeleteItemCard(int itemCardId)
         {
-            var results = await _db.IsUsedItemAsync(itemCardId);
-            return Ok(results);
+            var trans = await _db.Database.BeginTransactionAsync();
+
+            try
+            {
+                var results = await _db.ItemUsages.FromSqlRaw($"IsUsedItem {itemCardId}").ToListAsync();
+
+                bool isAllNull = results.All(item =>
+                        item.DeliverId == null &&
+                        item.ItemPricintId == null &&
+                        item.ItemSerialId == null &&
+                        item.StockAdjustItemId == null &&
+                        item.StartQtyId == null &&
+                        item.PayId == null &&
+                        item.PettycashId == null &&
+                        item.SpecialItemCardId == null &&
+                        item.PurInvId == null &&
+                        item.PurOrderId == null &&
+                        item.RetPurchId == null &&
+                        item.ReqsalesId == null &&
+                        item.RetSaleId == null &&
+                        item.InvId == null &&
+                        item.ItemOfferId == null &&
+                        item.SalesOfferId == null &&
+                        item.SalesOfferReqId == null &&
+                        item.SalesOrderId == null &&
+                        item.StockRecId == null &&
+                        item.TranId == null &&
+                        item.TranReqId == null &&
+                        item.PrinQoutId == null &&
+                        item.BillItemsId == null &&
+                        item.ProdItemAtrribId == null &&
+                        item.ItemAtrribBatchId == null &&
+                        item.Material == null &&
+                        item.ProductJobOrderId == null &&
+                        item.ScrapJobOrderId == null &&
+                        item.GoStockJobOrderId == null &&
+                        item.ProdItemsWorkOrderId == null &&
+                        item.MaterialWorkOrderId == null &&
+                        item.ScrapWorkOrderId == null &&
+                        item.ProjectEstimateItemId == null &&
+                        item.ItemPartId == null &&
+                        item.ProjectRealItemId == null &&
+                        item.TenderContractId == null &&
+                        item.ContractorContractContractId == null &&
+                        item.ContractorExitractId == null &&
+                        item.TenderItemId == null &&
+                        item.ExecutExitractId == null &&
+                        item.TenderOfferId == null &&
+                        item.OwnerExitractId == null &&
+                        item.TenderPlanId == null &&
+                        item.TenderQoutationId == null &&
+                        item.TenderId == null &&
+                        item.ItemDeliverId == null &&
+                        item.ItemRecQualityId == null &&
+                        item.ProdItemRecId == null &&
+                        item.JobOrderItemsRepairId == null &&
+                        item.ScrapItemsRepairId == null &&
+                        item.TaskId == null &&
+                        item.VehclItemPart == null
+                       );
+
+                if (!isAllNull)
+                {
+                    foreach (var item in results)
+                    {
+                        if (item.DeliverId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( DeliverId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (DeliverId)"
+                            });
+                        if (item.ItemPricintId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ItemPricintId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ItemPricintId)"
+                            });
+                        if (item.ItemSerialId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ItemSerialId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ItemSerialId)"
+                            });
+                        if (item.StockAdjustItemId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( StockAdjustItemId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (StockAdjustItemId)"
+                            });
+                        if (item.StartQtyId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( StartQtyId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (StartQtyId)"
+                            });
+                        if (item.PayId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( PayId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (PayId)"
+                            });
+                        if (item.PettycashId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( PettycashId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (PettycashId)"
+                            });
+                        if (item.SpecialItemCardId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( SpecialItemCardId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (SpecialItemCardId)"
+                            });
+                        if (item.PurInvId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( PurInvId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (PurInvId)"
+                            });
+                        if (item.PurOrderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( PurOrderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (PurOrderId)"
+                            });
+                        if (item.RetPurchId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( RetPurchId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (RetPurchId)"
+                            });
+                        if (item.ReqsalesId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ReqsalesId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ReqsalesId)"
+                            });
+                        if (item.RetSaleId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( RetSaleId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (RetSaleId)"
+                            });
+                        if (item.InvId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( InvId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (InvId)"
+                            });
+                        if (item.ItemOfferId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ItemOfferId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ItemOfferId)"
+                            });
+                        if (item.SalesOfferId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( SalesOfferId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (SalesOfferId)"
+                            });
+                        if (item.SalesOfferReqId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( SalesOfferReqId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (SalesOfferReqId)"
+                            });
+                        if (item.SalesOrderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( SalesOrderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (SalesOrderId)"
+                            });
+                        if (item.StockRecId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( StockRecId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (StockRecId)"
+                            });
+                        if (item.TranId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TranId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TranId)"
+                            });
+                        if (item.TranReqId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TranReqId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TranReqId)"
+                            });
+                        if (item.PrinQoutId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( PrinQoutId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (PrinQoutId)"
+                            });
+                        if (item.BillItemsId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( BillItemsId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (BillItemsId)"
+                            });
+                        if (item.ProdItemAtrribId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ProdItemAtrribId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ProdItemAtrribId)"
+                            });
+                        if (item.ItemAtrribBatchId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ItemAtrribBatchId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ItemAtrribBatchId)"
+                            });
+                        if (item.Material != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( Material ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (Material)"
+                            });
+                        if (item.ProductJobOrderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ProductJobOrderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ProductJobOrderId)"
+                            });
+                        if (item.ScrapJobOrderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ScrapJobOrderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ScrapJobOrderId)"
+                            });
+                        if (item.GoStockJobOrderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( GoStockJobOrderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (GoStockJobOrderId)"
+                            });
+                        if (item.ProdItemsWorkOrderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ProdItemsWorkOrderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ProdItemsWorkOrderId)"
+                            });
+                        if (item.MaterialWorkOrderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( MaterialWorkOrderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (MaterialWorkOrderId)"
+                            });
+                        if (item.ScrapWorkOrderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ScrapWorkOrderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ScrapWorkOrderId)"
+                            });
+                        if (item.ProjectEstimateItemId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ProjectEstimateItemId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ProjectEstimateItemId)"
+                            });
+                        if (item.ItemPartId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ItemPartId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ItemPartId)"
+                            });
+                        if (item.ProjectRealItemId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ProjectRealItemId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ProjectRealItemId)"
+                            });
+                        if (item.TenderContractId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TenderContractId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TenderContractId)"
+                            });
+                        if (item.ContractorContractContractId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ContractorContractContractId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ContractorContractContractId)"
+                            });
+                        if (item.ContractorExitractId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ContractorExitractId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ContractorExitractId)"
+                            });
+                        if (item.TenderItemId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TenderItemId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TenderItemId)"
+                            });
+                        if (item.ExecutExitractId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ExecutExitractId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ExecutExitractId)"
+                            });
+                        if (item.TenderOfferId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TenderOfferId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TenderOfferId)"
+                            });
+                        if (item.OwnerExitractId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( OwnerExitractId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (OwnerExitractId)"
+                            });
+                        if (item.TenderPlanId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TenderPlanId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TenderPlanId)"
+                            });
+                        if (item.TenderQoutationId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TenderQoutationId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TenderQoutationId)"
+                            });
+                        if (item.TenderId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TenderId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TenderId)"
+                            });
+                        if (item.ItemDeliverId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ItemDeliverId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ItemDeliverId)"
+                            });
+                        if (item.ItemRecQualityId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ItemRecQualityId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ItemRecQualityId)"
+                            });
+                        if (item.ProdItemRecId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ProdItemRecId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ProdItemRecId)"
+                            });
+                        if (item.JobOrderItemsRepairId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( JobOrderItemsRepairId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (JobOrderItemsRepairId)"
+                            });
+                        if (item.ScrapItemsRepairId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( ScrapItemsRepairId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (ScrapItemsRepairId)"
+                            });
+                        if (item.TaskId != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( TaskId ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (TaskId)"
+                            });
+                        if (item.VehclItemPart != null)
+                            return Ok(new
+                            {
+                                status = false,
+                                message = "( VehclItemPart ) لا يمكن مسح هذا المنتج لانه مرتبط بهذا الفيلد",
+                                messageEn = "This product cannot be deleted because it is related to this field (VehclItemPart)"
+                            });
+                    }
+                }
+
+            
+
+                MsItemImage getItemImage = await _db.MsItemImages.FirstOrDefaultAsync(m=> m.ItemCardId == itemCardId);
+                if (getItemImage is not null)
+                {
+                    _db.MsItemImages.Remove(getItemImage);
+                    await _db.SaveChangesAsync();
+                }
+
+                List<MsItemUnit> getItemUnits = await _db.MsItemUnits.Where(u=>u.ItemCardId == itemCardId).ToListAsync();
+                if (getItemUnits.Any())
+                {
+                    _db.MsItemUnits.RemoveRange(getItemUnits);
+                    await _db.SaveChangesAsync();
+                }
+
+                List<MsItemCollection> getItemCollections = await _db.MsItemCollections.Where(c => c.ItemCardId == itemCardId).ToListAsync();
+                if (getItemCollections.Any())
+                {
+                    _db.MsItemCollections.RemoveRange(getItemCollections);
+                    await  _db.SaveChangesAsync();
+
+                }
+
+                List<MsItemAlternative> getItemAlternatives = await _db.MsItemAlternatives.Where(a => a.ItemCardId == itemCardId).ToListAsync();
+                if (getItemAlternatives.Any())
+                {
+                    _db.MsItemAlternatives.RemoveRange(getItemAlternatives);
+                    await _db.SaveChangesAsync();
+                }
+
+                List<MsItemCardDefaulPartition> getItemDefaultPartition = await _db.MsItemCardDefaulPartitions.Where(i=>i.ItemCardId == itemCardId).ToListAsync();
+                if (getItemDefaultPartition.Any())
+                {
+                    _db.MsItemCardDefaulPartitions.RemoveRange(getItemDefaultPartition);
+                    await _db.SaveChangesAsync();
+                }
+
+                MsItemCard getItem = await _db.MsItemCards.FindAsync(itemCardId);
+                if (getItem is not null)
+                {
+                    _db.MsItemCards.Remove(getItem);
+                    await _db.SaveChangesAsync();
+                }
+
+
+                await trans.CommitAsync();
+
+                var response = new
+                {
+                    status = true,
+                    message = "تم المسح بنجاح",
+                    messageEn = "item has been deleted successfully",
+                };
+
+                return Ok(response);
+
+            }
+            catch (Exception ex)
+            {
+                await trans.RollbackAsync();
+
+                var Bad_response = new
+                {
+                    status = false,
+                    message = $" {ex.Message} حدث خطا",
+                    messageEn = $"something went wrong {ex.Message}",
+                };
+
+                return Ok(Bad_response);
+            }
+         
         }
+
 
         [HttpPost("AddItemWitImage")]
         public async Task<IActionResult> AddItemWitImage([FromForm]MsItemCardWithImage dto)
@@ -132,11 +635,13 @@ namespace ApiERP.Controllers
                     return BadRequest("يوجد خطا في البيانات المرسله يرجى مرجعتها");
                 }
 
+           
 
                 MsItemCard getRecord = await _db.MsItemCards.FindAsync(dto.ItemCardId);
 
                 if (getRecord == null)
                 {
+
                     MsItemCard existingItemCode = await _db.MsItemCards.Where(c => c.ItemCode == dto.ItemCode).FirstOrDefaultAsync();
                     if (existingItemCode is not null)
                     {
@@ -150,6 +655,38 @@ namespace ApiERP.Controllers
 
                         return Ok(Bad_response);
                     }
+
+                    bool anyDefaultPurchas = dto.list.Any(item => item.IsDefaultSale != null && (bool)item.IsDefaultPurchas);
+
+                    if (!anyDefaultPurchas)
+                    {
+                        var Bad_response = new
+                        {
+                            status = false,
+                            message = "يرجي تحديد وحده شراء أساسية",
+                            messageEn = "Please select purchase unit",
+
+                        };
+
+                        return Ok(Bad_response);
+                    };
+
+                    bool anyDefaultSale = dto.list.Any(item => item.IsDefaultSale != null && (bool)item.IsDefaultSale);
+
+
+                    if (!anyDefaultSale)
+                    {
+                        var Bad_response = new
+                        {
+                            status = false,
+                            message = "يرجي تحديد وحده بيع أساسية",
+                            messageEn = "Please select sales unit",
+
+                        };
+
+                        return Ok(Bad_response);
+                    };
+
 
                     MsItemCard NewItem = _mapper.Map<MsItemcardDto, MsItemCard>(dto);
 
@@ -301,6 +838,539 @@ namespace ApiERP.Controllers
                 }
                 else
                 {
+
+                    if(getRecord.BasUnitId != dto.BasUnitId)
+                    {
+                        var results = await _db.ItemUsages.FromSqlRaw($"IsUsedItem {getRecord.ItemCardId}").ToListAsync();
+
+                        bool isAllNull = results.All(item =>
+                                item.DeliverId == null &&
+                                item.ItemPricintId == null &&
+                                item.ItemSerialId == null &&
+                                item.StockAdjustItemId == null &&
+                                item.StartQtyId == null &&
+                                item.PayId == null &&
+                                item.PettycashId == null &&
+                                item.SpecialItemCardId == null &&
+                                item.PurInvId == null &&
+                                item.PurOrderId == null &&
+                                item.RetPurchId == null &&
+                                item.ReqsalesId == null &&
+                                item.RetSaleId == null &&
+                                item.InvId == null &&
+                                item.ItemOfferId == null &&
+                                item.SalesOfferId == null &&
+                                item.SalesOfferReqId == null &&
+                                item.SalesOrderId == null &&
+                                item.StockRecId == null &&
+                                item.TranId == null &&
+                                item.TranReqId == null &&
+                                item.PrinQoutId == null &&
+                                item.BillItemsId == null &&
+                                item.ProdItemAtrribId == null &&
+                                item.ItemAtrribBatchId == null &&
+                                item.Material == null &&
+                                item.ProductJobOrderId == null &&
+                                item.ScrapJobOrderId == null &&
+                                item.GoStockJobOrderId == null &&
+                                item.ProdItemsWorkOrderId == null &&
+                                item.MaterialWorkOrderId == null &&
+                                item.ScrapWorkOrderId == null &&
+                                item.ProjectEstimateItemId == null &&
+                                item.ItemPartId == null &&
+                                item.ProjectRealItemId == null &&
+                                item.TenderContractId == null &&
+                                item.ContractorContractContractId == null &&
+                                item.ContractorExitractId == null &&
+                                item.TenderItemId == null &&
+                                item.ExecutExitractId == null &&
+                                item.TenderOfferId == null &&
+                                item.OwnerExitractId == null &&
+                                item.TenderPlanId == null &&
+                                item.TenderQoutationId == null &&
+                                item.TenderId == null &&
+                                item.ItemDeliverId == null &&
+                                item.ItemRecQualityId == null &&
+                                item.ProdItemRecId == null &&
+                                item.JobOrderItemsRepairId == null &&
+                                item.ScrapItemsRepairId == null &&
+                                item.TaskId == null &&
+                                item.VehclItemPart == null
+                               );
+
+                        if (!isAllNull)
+                        {
+                            foreach (var item in results)
+                            {
+                                if (item.DeliverId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( DeliverId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (DeliverId)"
+                                    });
+                                if (item.ItemPricintId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ItemPricintId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ItemPricintId)"
+                                    });
+                                if (item.ItemSerialId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ItemSerialId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ItemSerialId)"
+                                    });
+                                if (item.StockAdjustItemId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( StockAdjustItemId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (StockAdjustItemId)"
+                                    });
+                                if (item.StartQtyId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( StartQtyId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (StartQtyId)"
+                                    });
+                                if (item.PayId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( PayId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (PayId)"
+                                    });
+                                if (item.PettycashId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( PettycashId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (PettycashId)"
+                                    });
+                                if (item.SpecialItemCardId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( SpecialItemCardId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (SpecialItemCardId)"
+                                    });
+                                if (item.PurInvId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( PurInvId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (PurInvId)"
+                                    });
+                                if (item.PurOrderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( PurOrderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (PurOrderId)"
+                                    });
+                                if (item.RetPurchId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( RetPurchId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (RetPurchId)"
+                                    });
+                                if (item.ReqsalesId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ReqsalesId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ReqsalesId)"
+                                    });
+                                if (item.RetSaleId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( RetSaleId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (RetSaleId)"
+                                    });
+                                if (item.InvId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( InvId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (InvId)"
+                                    });
+                                if (item.ItemOfferId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ItemOfferId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ItemOfferId)"
+                                    });
+                                if (item.SalesOfferId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( SalesOfferId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (SalesOfferId)"
+                                    });
+                                if (item.SalesOfferReqId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( SalesOfferReqId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (SalesOfferReqId)"
+                                    });
+                                if (item.SalesOrderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( SalesOrderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (SalesOrderId)"
+                                    });
+                                if (item.StockRecId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( StockRecId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (StockRecId)"
+                                    });
+                                if (item.TranId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TranId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TranId)"
+                                    });
+                                if (item.TranReqId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TranReqId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TranReqId)"
+                                    });
+                                if (item.PrinQoutId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( PrinQoutId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (PrinQoutId)"
+                                    });
+                                if (item.BillItemsId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( BillItemsId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (BillItemsId)"
+                                    });
+                                if (item.ProdItemAtrribId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ProdItemAtrribId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ProdItemAtrribId)"
+                                    });
+                                if (item.ItemAtrribBatchId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ItemAtrribBatchId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ItemAtrribBatchId)"
+                                    });
+                                if (item.Material != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( Material ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (Material)"
+                                    });
+                                if (item.ProductJobOrderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ProductJobOrderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ProductJobOrderId)"
+                                    });
+                                if (item.ScrapJobOrderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ScrapJobOrderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ScrapJobOrderId)"
+                                    });
+                                if (item.GoStockJobOrderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( GoStockJobOrderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (GoStockJobOrderId)"
+                                    });
+                                if (item.ProdItemsWorkOrderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ProdItemsWorkOrderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ProdItemsWorkOrderId)"
+                                    });
+                                if (item.MaterialWorkOrderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( MaterialWorkOrderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (MaterialWorkOrderId)"
+                                    });
+                                if (item.ScrapWorkOrderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ScrapWorkOrderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ScrapWorkOrderId)"
+                                    });
+                                if (item.ProjectEstimateItemId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ProjectEstimateItemId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ProjectEstimateItemId)"
+                                    });
+                                if (item.ItemPartId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ItemPartId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ItemPartId)"
+                                    });
+                                if (item.ProjectRealItemId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ProjectRealItemId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ProjectRealItemId)"
+                                    });
+                                if (item.TenderContractId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TenderContractId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TenderContractId)"
+                                    });
+                                if (item.ContractorContractContractId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ContractorContractContractId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ContractorContractContractId)"
+                                    });
+                                if (item.ContractorExitractId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ContractorExitractId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ContractorExitractId)"
+                                    });
+                                if (item.TenderItemId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TenderItemId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TenderItemId)"
+                                    });
+                                if (item.ExecutExitractId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ExecutExitractId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ExecutExitractId)"
+                                    });
+                                if (item.TenderOfferId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TenderOfferId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TenderOfferId)"
+                                    });
+                                if (item.OwnerExitractId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( OwnerExitractId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (OwnerExitractId)"
+                                    });
+                                if (item.TenderPlanId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TenderPlanId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TenderPlanId)"
+                                    });
+                                if (item.TenderQoutationId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TenderQoutationId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TenderQoutationId)"
+                                    });
+                                if (item.TenderId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TenderId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TenderId)"
+                                    });
+                                if (item.ItemDeliverId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ItemDeliverId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ItemDeliverId)"
+                                    });
+                                if (item.ItemRecQualityId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ItemRecQualityId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ItemRecQualityId)"
+                                    });
+                                if (item.ProdItemRecId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ProdItemRecId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ProdItemRecId)"
+                                    });
+                                if (item.JobOrderItemsRepairId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( JobOrderItemsRepairId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (JobOrderItemsRepairId)"
+                                    });
+                                if (item.ScrapItemsRepairId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( ScrapItemsRepairId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (ScrapItemsRepairId)"
+                                    });
+                                if (item.TaskId != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( TaskId ) لا يمكن تغيير وحده هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (TaskId)"
+                                    });
+                                if (item.VehclItemPart != null)
+                                    return Ok(new
+                                    {
+                                        status = false,
+                                        message = "( VehclItemPart ) لا يمكن متغيير وحده  هذا المنتج لانه مرتبط بهذا الفيلد",
+                                        messageEn = "This product cannot be deleted because it is related to this field (VehclItemPart)"
+                                    });
+                            }
+                        }
+                        else
+                        {
+                            bool anyDefaultPurchasUnit = dto.list.Any(item => item.IsDefaultSale != null && (bool)item.IsDefaultPurchas);
+
+                            if (!anyDefaultPurchasUnit)
+                            {
+                                var Bad_response = new
+                                {
+                                    status = false,
+                                    message = "يرجي تحديد وحده شراء أساسية",
+                                    messageEn = "Please select purchase unit",
+
+                                };
+
+                                return Ok(Bad_response);
+                            };
+
+                            bool anyDefaultSaleUnit = dto.list.Any(item => item.IsDefaultSale != null && (bool)item.IsDefaultSale);
+
+
+                            if (!anyDefaultSaleUnit)
+                            {
+                                var Bad_response = new
+                                {
+                                    status = false,
+                                    message = "يرجي تحديد وحده بيع أساسية",
+                                    messageEn = "Please select sales unit",
+
+                                };
+
+                                return Ok(Bad_response);
+                            };
+
+
+                            List<MsItemUnit> getItemUnits = await _db.MsItemUnits.Where(u => u.ItemCardId == getRecord.ItemCardId).ToListAsync();
+                            if(getItemUnits.Any())
+                            {
+                                _db.MsItemUnits.RemoveRange(getItemUnits);
+                                await _db.SaveChangesAsync();
+                            }
+
+                            getRecord.BasUnitId = dto.BasUnitId;
+                            await _db.SaveChangesAsync();
+
+                            if (dto.list != null)
+                            {
+                                foreach (var itemUnit in dto.list)
+                                {
+                                    MsItemUnit NewItemUnit = new MsItemUnit
+                                    {
+                                        UnitCode = itemUnit.UnitCode,
+                                        UnitNam = itemUnit.UnitNam,
+                                        UnitNameE = itemUnit?.UnitNameE,
+                                        ItemCardId = getRecord.ItemCardId,
+                                        BasUnitId = dto.BasUnitId,
+                                        UnittRate = itemUnit?.UnittRate,
+                                        Symbol = itemUnit?.Symbol,
+                                        BarCode1 = itemUnit?.BarCode1,
+                                        BarCode2 = itemUnit?.BarCode2,
+                                        BarCode3 = itemUnit?.BarCode3,
+                                        BarCode4 = itemUnit?.BarCode4,
+                                        BarCode5 = itemUnit?.BarCode5,
+                                        BarCode6 = itemUnit?.BarCode6,
+                                        BarCode7 = itemUnit?.BarCode7,
+                                        BarCode8 = itemUnit?.BarCode8,
+                                        BarCode9 = itemUnit?.BarCode9,
+                                        BarCode10 = itemUnit?.BarCode10,
+                                        BarCode11 = itemUnit?.BarCode11,
+                                        BarCode12 = itemUnit?.BarCode12,
+                                        BarCode13 = itemUnit?.BarCode13,
+                                        BarCode14 = itemUnit?.BarCode14,
+                                        BarCode15 = itemUnit?.BarCode15,
+                                        EtaxUnitCode = itemUnit?.EtaxUnitCode,
+                                        Quantity1 = itemUnit?.Quantity1,
+                                        Quantity2 = itemUnit?.Quantity2,
+                                        Quantity3 = itemUnit?.Quantity3,
+                                        Quantity4 = itemUnit?.Quantity4,
+                                        Quantity5 = itemUnit?.Quantity5,
+                                        Price1 = itemUnit?.Price1,
+                                        Price2 = itemUnit?.Price2,
+                                        Price3 = itemUnit?.Price3,
+                                        Price4 = itemUnit?.Price4,
+                                        Price5 = itemUnit?.Price5,
+                                        Price6 = itemUnit?.Price6,
+                                        Price7 = itemUnit?.Price7,
+                                        Price8 = itemUnit?.Price8,
+                                        Price9 = itemUnit?.Price9,
+                                        Price10 = itemUnit?.Price10,
+                                        IsDefaultPurchas = itemUnit.IsDefaultPurchas,
+                                        IsDefaultSale = itemUnit.IsDefaultSale,
+                                        CannotDevide = itemUnit.CannotDevide,
+                                    };
+
+                                    _db.MsItemUnits.Add(NewItemUnit);
+                                    await _db.SaveChangesAsync();
+                                }
+                            }
+
+                        }
+                    }
+
+                 
+
                     _mapper.Map(dto, getRecord);
                     await _db.SaveChangesAsync();
 

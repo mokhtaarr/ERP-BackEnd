@@ -77,8 +77,8 @@ namespace DAL.Dtos
         public decimal? UnittRate { get; set; }
 
         public bool? CannotDevide { get; set; }
-        public bool? IsDefaultSale { get; set; }
-        public bool? IsDefaultPurchas { get; set; }
+        public bool? IsDefaultSale { get; set; } = false;
+        public bool? IsDefaultPurchas { get; set; } = false;
 
         public string? Symbol { get; set; }
         public string? BarCode1 { get; set; }

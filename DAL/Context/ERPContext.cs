@@ -61,6 +61,7 @@ namespace DAL.Context
         public virtual DbSet<CalBudgetDetail> CalBudgetDetails { get; set; } = null!;
         public virtual DbSet<CalBusinessPartnerAccount> CalBusinessPartnerAccounts { get; set; } = null!;
         public virtual DbSet<CalCostCenter> CalCostCenters { get; set; } = null!;
+        public virtual DbSet<CalActivities> Cal_Activities { get; set; } = null!;
         public virtual DbSet<CalCostCenterAccount> CalCostCenterAccounts { get; set; } = null!;
         public virtual DbSet<CalCustAccount> CalCustAccounts { get; set; } = null!;
         public virtual DbSet<CalEmpAccount> CalEmpAccounts { get; set; } = null!;
@@ -893,16 +894,7 @@ namespace DAL.Context
 
         public DbSet<ItemUsage> ItemUsages { get; set; }
 
-        public async Task<List<ItemUsage>> IsUsedItemAsync(int itemCardId)
-        {
-            var itemCardIdParam = new SqlParameter("@ItemCardId", itemCardId);
-
-            var results = await this.ItemUsages
-                .FromSqlRaw("EXECUTE dbo.IsUsedItem @ItemCardId", itemCardIdParam)
-                .ToListAsync();
-
-            return results;
-        }
+      
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -920,59 +912,6 @@ namespace DAL.Context
             {
                 entity.HasNoKey();
 
-                // يمكنك تحديد الأعمدة إذا كنت بحاجة إلى ضبط أنواع البيانات أو التسمية
-                entity.Property(e => e.DeliverId);
-                entity.Property(e => e.ItemPricintId);
-                entity.Property(e => e.ItemSerialId);
-                entity.Property(e => e.StockAdjustItemId);
-                entity.Property(e => e.StartQtyId);
-                entity.Property(e => e.PayId);
-                entity.Property(e => e.PettycashId);
-                entity.Property(e => e.SpecialItemCardId);
-                entity.Property(e => e.PurInvId);
-                entity.Property(e => e.PurOrderId);
-                entity.Property(e => e.RetPurchId);
-                entity.Property(e => e.ReqsalesId);
-                entity.Property(e => e.RetSaleId);
-                entity.Property(e => e.InvId);
-                entity.Property(e => e.ItemOfferId);
-                entity.Property(e => e.SalesOfferId);
-                entity.Property(e => e.SalesOfferReqId);
-                entity.Property(e => e.SalesOrderId);
-                entity.Property(e => e.StockRecId);
-                entity.Property(e => e.TranId);
-                entity.Property(e => e.TranReqId);
-                entity.Property(e => e.PrinQoutId);
-                entity.Property(e => e.BillItemsId);
-                entity.Property(e => e.ProdItemAtrribId);
-                entity.Property(e => e.ItemAtrribBatchId);
-                entity.Property(e => e.MaterialJobOrderId);
-                entity.Property(e => e.ProductJobOrderId);
-                entity.Property(e => e.ScrapJobOrderId);
-                entity.Property(e => e.GoStockJobOrderId);
-                entity.Property(e => e.ProdItemsWorkOrderId);
-                entity.Property(e => e.MaterialWorkOrderId);
-                entity.Property(e => e.ScrapWorkOrderId);
-                entity.Property(e => e.ProjectEstimateItemId);
-                entity.Property(e => e.ItemPartId);
-                entity.Property(e => e.ProjectRealItemId);
-                entity.Property(e => e.TenderContractId);
-                entity.Property(e => e.ContractorContractContractId);
-                entity.Property(e => e.ContractorExitractId);
-                entity.Property(e => e.TenderItemId);
-                entity.Property(e => e.ExecutExitractId);
-                entity.Property(e => e.TenderOfferId);
-                entity.Property(e => e.OwnerExitractId);
-                entity.Property(e => e.TenderPlanId);
-                entity.Property(e => e.TenderQoutationId);
-                entity.Property(e => e.TenderId);
-                entity.Property(e => e.ItemDeliverId);
-                entity.Property(e => e.ItemRecQualityId);
-                entity.Property(e => e.ProdItemRecId);
-                entity.Property(e => e.JobOrderItemsRepairId);
-                entity.Property(e => e.ScrapItemsRepairId);
-                entity.Property(e => e.TaskId);
-                entity.Property(e => e.VehclItemPart);
             });
 
             modelBuilder.Entity<AnAnimalDeath>(entity =>
@@ -3415,7 +3354,14 @@ namespace DAL.Context
                     .HasConstraintName("FK_Cal_BusinessPartnerAccounts_Ms_BusinessPartners");
             });
 
-            modelBuilder.Entity<CalCostCenter>(entity =>
+            modelBuilder.Entity<CalActivities>(entity =>
+            {
+                entity.HasKey(e => e.ActiveId);
+
+                entity.ToTable("Cal_Activities");
+            });
+
+                modelBuilder.Entity<CalCostCenter>(entity =>
             {
                 entity.HasKey(e => e.CostCenterId)
                     .HasName("PK_Cal_CostCenter");

@@ -33,7 +33,7 @@ namespace DAL.Models
         public int? BillItemsId { get; set; }
         public int? ProdItemAtrribId { get; set; }
         public int? ItemAtrribBatchId { get; set; }
-        public int? MaterialJobOrderId { get; set; }
+        public int? Material { get; set; }
         public int? ProductJobOrderId { get; set; }
         public int? ScrapJobOrderId { get; set; }
         public int? GoStockJobOrderId { get; set; }
@@ -61,5 +61,4 @@ namespace DAL.Models
         public int? TaskId { get; set; }
         public int? VehclItemPart { get; set; }
     }
-
 }

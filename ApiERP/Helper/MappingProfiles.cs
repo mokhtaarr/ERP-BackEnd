@@ -17,6 +17,14 @@ namespace ApiERP.Helper
             CreateMap<MsItemUnitDto, MsItemUnit>();
             CreateMap<MsItemUnit,MsItemUnitDto>();
             CreateMap<MsItemcardDto,MsItemCard>();
+            CreateMap<CalActivitieDto,CalActivities>();
+            CreateMap<CalActivities, CalActivitieDto>();
+            CreateMap<GUser, GUsersDto>();
+            CreateMap<GUsersDto, GUser>();
+            CreateMap<SysFinancialYearDto, SysFinancialYear>();
+            CreateMap<SysFinancialYear, SysFinancialYearDto>();
+            CreateMap<SysFinancialIntervalDto, SysFinancialInterval>();
+            CreateMap<SysFinancialInterval, SysFinancialIntervalDto>();
 
         }
     }
